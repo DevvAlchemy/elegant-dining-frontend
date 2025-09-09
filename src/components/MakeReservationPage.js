@@ -1,4 +1,3 @@
-// src/components/MakeReservationPage.js
 import React, { useState } from 'react';
 import { reservationService } from '../services/reservationService';
 

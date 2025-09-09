@@ -45,7 +45,7 @@
     "prettier": "^2.8.8",
     "eslint": "^8.43.0"
   },
-  "proxy": "http://localhost/elegant-dining/backend",
+  "proxy": "http://localhost/elegant-dining/elegant-dining-frontend",
   "homepage": ".",
   "keywords": [
     "restaurant",

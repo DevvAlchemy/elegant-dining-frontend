@@ -1,7 +1,6 @@
-// src/services/reservationService.js
 
 // API configuration
-const API_BASE_URL = 'http://localhost/elegant-dining/backend/api';
+const API_BASE_URL = '/backend/api';
 
 class ReservationService {
   constructor() {
@@ -26,28 +25,34 @@ class ReservationService {
   }
 
   // Create new reservation
-  async createReservation(reservationData) {
-    try {
-      const response = await fetch(`${this.apiUrl}/reservations.php`, {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
-        },
-        body: JSON.stringify(reservationData)
-      });
+ async createReservation(reservationData) {
+  try {
+    console.log('API URL:', `${this.apiUrl}/reservations.php`);
+    console.log('Sending data:', reservationData);
+    
+    const response = await fetch(`${this.apiUrl}/reservations.php`, {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify(reservationData)
+    });
 
-      if (!response.ok) {
-        throw new Error(`HTTP error! status: ${response.status}`);
-      }
+    console.log('Response status:', response.status);
+    console.log('Response:', response);
 
-      const data = await response.json();
-      return data;
-    } catch (error) {
-      console.error('Error creating reservation:', error);
-      throw error;
+    if (!response.ok) {
+      throw new Error(`HTTP error! status: ${response.status}`);
     }
-  }
 
+    const data = await response.json();
+    console.log('Response data:', data);
+    return data;
+  } catch (error) {
+    console.error('Detailed error:', error);
+    throw error;
+  }
+}
   // Delete reservation
   async deleteReservation(id) {
     try {

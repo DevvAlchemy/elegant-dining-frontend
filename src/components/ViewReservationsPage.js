@@ -1,4 +1,3 @@
-// src/components/ViewReservationsPage.js
 import React from 'react';
 import { reservationService } from '../services/reservationService';
 
